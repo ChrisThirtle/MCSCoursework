@@ -20,6 +20,7 @@ class EpisodeViewController: UIViewController {
     
     tableView.dataSource = self
     tableView.delegate = self
+    searchBar.delegate = self
     
     ShowController().getShow(url: "https://api.tvmaze.com/shows/82?embed=seasons&embed=episodes") { (myShow) in
       self.seasons = ShowController().sortEpisodesToSeasons(episodes: myShow.episodes)
@@ -59,7 +60,7 @@ extension EpisodeViewController: UITableViewDataSource {
   }
   
   func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-    return seasons[section].count
+    return seasons[section].filter(matchesSearchBar).count
   }
   
   func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
@@ -69,14 +70,12 @@ extension EpisodeViewController: UITableViewDataSource {
   func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCell(withIdentifier: "episodeCell", for: indexPath)
     
-    let episode = seasons[indexPath.section][indexPath.row]
-    print(epImages)
+    let selectedEpisodes = seasons[indexPath.section].filter(matchesSearchBar)
+    let episode = selectedEpisodes[indexPath.row]
     cell.imageView?.image = epImages[indexPath.section][indexPath.row]
     cell.textLabel?.text = "E\(episode.episodeNumber) - \(episode.name)"
     return cell
   }
-  
-  
 }
 
 extension EpisodeViewController: UITableViewDelegate {
@@ -87,8 +86,19 @@ extension EpisodeViewController: UITableViewDelegate {
     episodeDetailViewController.episode = seasons[indexPath.section][indexPath.row]
     navigationController?.pushViewController(episodeDetailViewController, animated: true)
   }
+  
 }
 
 extension EpisodeViewController: UISearchBarDelegate {
+  //Actual filtering occurs in UITableViewDataSource
+  func matchesSearchBar(_ episode: Episode) -> Bool {
+    if searchBar?.text?.trimmingCharacters(in: .whitespaces) == "" {
+      return true
+    }
+    return episode.name.contains(searchBar?.text ?? "")
+  }
   
+  func searchBarSearchButtonClicked(_ searchBar: UISearchBar){
+    tableView.reloadData()
+  }
 }
