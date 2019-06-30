@@ -8,10 +8,15 @@
 //
 
 import Foundation
-import CoreData
 
-@objc(Episode)
-public class Episode: NSManagedObject, Decodable {
+class Episode: Decodable {
+  
+  let name: String
+  let season: Int
+  let episodeNumber: Int
+  let airdate: String
+  let summary: String?
+  let image: ShowImage?
   
   enum CodingKeys: String, CodingKey {
     case name
@@ -22,22 +27,28 @@ public class Episode: NSManagedObject, Decodable {
     case image
   }
   
-  required public init(from decoder: Decoder) throws {
-    let context = CoreDataManager.shared.context
-    guard let entityDescription = NSEntityDescription.entity(forEntityName: "Episode", in: context) else {
-      fatalError("Failed to decode episode")
-    }
-    super.init(entity: entityDescription, insertInto: context)
-    
+  required init(from decoder: Decoder) throws {
     let container = try decoder.container(keyedBy: CodingKeys.self)
     self.name = try container.decode(String.self, forKey: .name)
-    self.episodeNumber = try container.decode(Int16.self, forKey: .episodeNumber)
-    self.season = try container.decode(Int16.self, forKey: .season)
+    self.episodeNumber = try container.decode(Int.self, forKey: .episodeNumber)
+    self.season = try container.decode(Int.self, forKey: .season)
     self.airdate = try container.decode(String.self, forKey: .airdate)
     self.image = try container.decode(ShowImage?.self, forKey: .image)
     
     let summaryHTML: String? = try container.decode(String?.self, forKey: .summary)
     self.summary = summaryHTML?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil) ?? ""
   }
-
+  
+  init(from favorite: FavoriteEpisode) {
+    self.name = favorite.name ?? ""
+    self.episodeNumber = Int(favorite.episodeNumber)
+    self.season = Int(favorite.season)
+    self.airdate = favorite.airdate ?? ""
+    self.summary = favorite.summary
+    self.image = nil
+  }
+  
+  static func ==(lhs: Episode, rhs: Episode) -> Bool {
+    return lhs.name == rhs.name
+  }
 }

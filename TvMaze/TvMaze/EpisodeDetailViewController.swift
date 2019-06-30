@@ -22,6 +22,7 @@ class EpisodeDetailViewController: UIViewController {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    ThemeController.registerThemeable(self)
     if let episode = self.episode {
       episodeTitleLabel.text = episode.name
       episodeSeasonLabel.text = "Season - \(episode.season)"
@@ -31,16 +32,21 @@ class EpisodeDetailViewController: UIViewController {
     }
     // Do any additional setup after loading the view.
   }
-  
-  
-  /*
-   // MARK: - Navigation
-   
-   // In a storyboard-based application, you will often want to do a little preparation before navigation
-   override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-   // Get the new view controller using segue.destination.
-   // Pass the selected object to the new view controller.
-   }
-   */
-  
+}
+
+extension EpisodeDetailViewController: Themeable {
+  func changeTheme() {
+    navigationController?.navigationBar.barStyle = ThemeController.shared.barStyle
+    
+    self.view.backgroundColor = ThemeController.shared.mainColor
+    self.view.tintColor = ThemeController.shared.tintColor
+    
+    episodeTitleLabel.textColor = ThemeController.shared.textColor
+    episodeSeasonLabel.textColor = ThemeController.shared.textColor
+    episodeNumberLabel.textColor = ThemeController.shared.textColor
+    episodeAirdateLabel.textColor = ThemeController.shared.textColor
+    episodeSummaryLabel.textColor = ThemeController.shared.textColor
+    
+    view.setNeedsDisplay()
+  }
 }
