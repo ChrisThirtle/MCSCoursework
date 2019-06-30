@@ -46,9 +46,9 @@ class ShowController {
     guard let lastEp = sorted.last else {
       return []
     }
-    var seasons = [[Episode]](repeating: [], count: lastEp.season)
+    var seasons = [[Episode]](repeating: [], count: Int(lastEp.season))
     for episode in sorted {
-      seasons[episode.season - 1].append(episode)
+      seasons[Int(episode.season) - 1].append(episode)
     }
     return seasons
   }

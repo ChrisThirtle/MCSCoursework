@@ -1,20 +1,17 @@
 //
-//  Episode.swift
+//  Episode+CoreDataClass.swift
 //  TvMaze
 //
-//  Created by Consultant on 6/26/19.
+//  Created by Consultant on 6/30/19.
 //  Copyright © 2019 Consultant. All rights reserved.
+//
 //
 
 import Foundation
+import CoreData
 
-struct Episode: Decodable {
-  let name: String
-  let episodeNumber: Int
-  let season: Int
-  let airdate: String
-  let summary: String?
-  let image: ShowImage?
+@objc(Episode)
+public class Episode: NSManagedObject, Decodable {
   
   enum CodingKeys: String, CodingKey {
     case name
@@ -25,15 +22,22 @@ struct Episode: Decodable {
     case image
   }
   
-  init(from decoder: Decoder) throws {
+  required public init(from decoder: Decoder) throws {
+    let context = CoreDataManager.shared.context
+    guard let entityDescription = NSEntityDescription.entity(forEntityName: "Episode", in: context) else {
+      fatalError("Failed to decode episode")
+    }
+    super.init(entity: entityDescription, insertInto: context)
+    
     let container = try decoder.container(keyedBy: CodingKeys.self)
     self.name = try container.decode(String.self, forKey: .name)
-    self.episodeNumber = try container.decode(Int.self, forKey: .episodeNumber)
-    self.season = try container.decode(Int.self, forKey: .season)
+    self.episodeNumber = try container.decode(Int16.self, forKey: .episodeNumber)
+    self.season = try container.decode(Int16.self, forKey: .season)
     self.airdate = try container.decode(String.self, forKey: .airdate)
     self.image = try container.decode(ShowImage?.self, forKey: .image)
     
     let summaryHTML: String? = try container.decode(String?.self, forKey: .summary)
     self.summary = summaryHTML?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil) ?? ""
   }
+
 }

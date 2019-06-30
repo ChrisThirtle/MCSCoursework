@@ -16,7 +16,6 @@ class Setting {
     }
     set {
       UserDefaults.standard.set(newValue, forKey: description)
-      ThemeController.changeTheme()
     }
   }
   

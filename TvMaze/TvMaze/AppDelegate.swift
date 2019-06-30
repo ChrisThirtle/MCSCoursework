@@ -16,7 +16,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
   func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
     
-    ThemeController.changeTheme()
+    print("Stored episodes are: ")
+    print(CoreDataManager.shared.getAllEpisodes())
+    
     return true
   }
 

@@ -45,13 +45,6 @@ class EpisodeTableViewController: UIViewController {
     }
   }
   
-  override func viewWillAppear(_ animated: Bool) {
-    super.viewWillAppear(animated)
-    for cell in tableView.visibleCells {
-      cell.textLabel?.textColor = ThemeController.currentTheme?.textColor
-    }
-  }
-  
   @IBAction func gotoOptionsMenu(sender: UIBarButtonItem) {
     let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
     guard let optionsMenuView = storyboard.instantiateViewController(withIdentifier: "OptionsViewController") as? OptionsViewController else { return }
@@ -77,8 +70,6 @@ extension EpisodeTableViewController: UITableViewDataSource {
     let cell = tableView.dequeueReusableCell(withIdentifier: "cell", for: indexPath)
     let episode = seasons[indexPath.section][indexPath.row]
     cell.textLabel?.text = "S\(episode.season)E\(episode.episodeNumber) - \(episode.name)"
-    cell.textLabel?.textColor = ThemeController.currentTheme?.textColor
-    cell.accessoryType = .detailDisclosureButton
     return cell
   }
 }
@@ -88,9 +79,5 @@ extension EpisodeTableViewController: UITableViewDelegate {
     guard let episodeDetailView = storyboard?.instantiateViewController(withIdentifier: "EpisodeDetailViewController") as? EpisodeDetailViewController else { return }
     episodeDetailView.episode = self.seasons[indexPath.section][indexPath.row]
     navigationController?.pushViewController(episodeDetailView, animated: true)
-  }
-  
-  func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
-    cell.textLabel?.textColor = ThemeController.currentTheme?.textColor
   }
 }
