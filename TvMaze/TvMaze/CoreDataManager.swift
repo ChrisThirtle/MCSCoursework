@@ -18,8 +18,7 @@ class CoreDataManager {
   lazy var persistentContainer: NSPersistentContainer = {
     let container = NSPersistentContainer(name: "FavoriteEpisodeContainer")
     container.loadPersistentStores(completionHandler: { (description, error) in
-      print(description)
-      print(error)
+      return
     })
     return container
   }()

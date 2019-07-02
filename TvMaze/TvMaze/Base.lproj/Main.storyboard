@@ -107,17 +107,25 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" alpha="0.30000001192092896" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fmH-8H-Ije">
+                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="O5T-PV-DfG" firstAttribute="bottom" secondItem="dSh-pe-VcP" secondAttribute="bottom" id="53H-lc-lrz"/>
+                            <constraint firstItem="fmH-8H-Ije" firstAttribute="top" secondItem="O5T-PV-DfG" secondAttribute="top" id="5Mf-GQ-poD"/>
                             <constraint firstItem="dSh-pe-VcP" firstAttribute="top" secondItem="O5T-PV-DfG" secondAttribute="top" id="9nW-eN-frg"/>
+                            <constraint firstItem="O5T-PV-DfG" firstAttribute="bottom" secondItem="fmH-8H-Ije" secondAttribute="bottom" id="JOW-DO-mYV"/>
                             <constraint firstItem="dSh-pe-VcP" firstAttribute="leading" secondItem="O5T-PV-DfG" secondAttribute="leading" id="OzE-QJ-sN6"/>
                             <constraint firstItem="dSh-pe-VcP" firstAttribute="trailing" secondItem="O5T-PV-DfG" secondAttribute="trailing" id="ix1-gc-tct"/>
+                            <constraint firstItem="fmH-8H-Ije" firstAttribute="leading" secondItem="O5T-PV-DfG" secondAttribute="leading" id="lft-kx-QbH"/>
+                            <constraint firstItem="fmH-8H-Ije" firstAttribute="trailing" secondItem="O5T-PV-DfG" secondAttribute="trailing" id="sjj-6a-CiY"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="O5T-PV-DfG"/>
                     </view>
                     <connections>
+                        <outlet property="showImageView" destination="fmH-8H-Ije" id="wba-sF-fSf"/>
                         <outlet property="tableView" destination="dSh-pe-VcP" id="UpD-4S-AUF"/>
                     </connections>
                 </viewController>

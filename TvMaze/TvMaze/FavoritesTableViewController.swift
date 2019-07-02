@@ -11,8 +11,10 @@ import UIKit
 class FavoritesTableViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
+  @IBOutlet weak var showImageView: UIImageView!
   
   var favorites = [Episode]()
+  var showImage: UIImage?
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -20,8 +22,11 @@ class FavoritesTableViewController: UIViewController {
     
     navigationController?.title = "Favorites"
     
+    
     tableView.dataSource = self
     tableView.delegate = self
+    
+    showImageView.image = showImage
     
     ThemeController.registerThemeable(self)
   }

@@ -6,14 +6,15 @@
         <attribute name="name" attributeType="String" syncable="YES"/>
         <attribute name="season" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES" syncable="YES"/>
         <attribute name="summary" optional="YES" attributeType="String" syncable="YES"/>
-        <relationship name="image" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ShowImage" syncable="YES"/>
+        <relationship name="image" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ShowImage" inverseName="episode" inverseEntity="ShowImage" syncable="YES"/>
     </entity>
     <entity name="ShowImage" representedClassName="ShowImage" syncable="YES">
         <attribute name="mediumString" optional="YES" attributeType="String" syncable="YES"/>
         <attribute name="originalString" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="episode" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Episode" inverseName="image" inverseEntity="Episode" syncable="YES"/>
     </entity>
     <elements>
-        <element name="Episode" positionX="-116.75" positionY="117.6640625" width="128" height="135"/>
-        <element name="ShowImage" positionX="36" positionY="117" width="128" height="73"/>
+        <element name="Episode" positionX="-116.75" positionY="117.6640625" width="128" height="133"/>
+        <element name="ShowImage" positionX="36" positionY="117" width="128" height="88"/>
     </elements>
 </model>

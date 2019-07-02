@@ -55,6 +55,7 @@ class EpisodeTableViewController: UIViewController {
   @IBAction func gotoFavoritesMenu(sender: UIBarButtonItem) {
     let storyboard = UIStoryboard(name: "Main", bundle: Bundle.main)
     guard let favoritesMenuView = storyboard.instantiateViewController(withIdentifier: "FavoritesTableViewController") as? FavoritesTableViewController else { return }
+    favoritesMenuView.showImage = self.showImageView.image
     navigationController?.pushViewController(favoritesMenuView, animated: true)
   }
   
