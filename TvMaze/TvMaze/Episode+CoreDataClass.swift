@@ -36,7 +36,10 @@ public class Episode: NSManagedObject, Decodable {
     self.image = try container.decode(ShowImage?.self, forKey: .image)
     
     let summaryHTML: String? = try container.decode(String?.self, forKey: .summary)
-    self.summary = summaryHTML?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil) ?? "No episode summary"
+    self.summary = summaryHTML?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil)
+    if self.summary?.isEmpty ?? true {
+      self.summary = "No episode summary"
+    }
   }
   
   static func ==(lhs: Episode, rhs: Episode) -> Bool {
