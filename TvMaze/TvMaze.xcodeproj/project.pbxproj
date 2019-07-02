@@ -21,12 +21,13 @@
 		02058AB722C58E5D0061E3D5 /* ThemeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02058AB622C58E5D0061E3D5 /* ThemeController.swift */; };
 		02058AE622C8FCE10061E3D5 /* CoreDataManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02058AE522C8FCE10061E3D5 /* CoreDataManager.swift */; };
 		02058AF022C905DB0061E3D5 /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02058AEC22C905DB0061E3D5 /* Show.swift */; };
-		02058AF422C908960061E3D5 /* ShowImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02058AF222C908960061E3D5 /* ShowImage.swift */; };
 		02058AF722C9180A0061E3D5 /* EpisodeTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02058AF622C9180A0061E3D5 /* EpisodeTableViewCell.swift */; };
 		02058AF922C91BA00061E3D5 /* FavoritesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02058AF822C91BA00061E3D5 /* FavoritesTableViewController.swift */; };
 		02058AFC22C924CB0061E3D5 /* FavoriteEpisodeContainer.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 02058AFA22C924CB0061E3D5 /* FavoriteEpisodeContainer.xcdatamodeld */; };
 		02058B2522CB711E0061E3D5 /* Episode+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02058B2322CB711E0061E3D5 /* Episode+CoreDataClass.swift */; };
 		02058B2622CB711E0061E3D5 /* Episode+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02058B2422CB711E0061E3D5 /* Episode+CoreDataProperties.swift */; };
+		02058B2922CB8C580061E3D5 /* ShowImage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02058B2722CB8C580061E3D5 /* ShowImage+CoreDataClass.swift */; };
+		02058B2A22CB8C580061E3D5 /* ShowImage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02058B2822CB8C580061E3D5 /* ShowImage+CoreDataProperties.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -46,12 +47,13 @@
 		02058AB622C58E5D0061E3D5 /* ThemeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThemeController.swift; sourceTree = "<group>"; };
 		02058AE522C8FCE10061E3D5 /* CoreDataManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataManager.swift; sourceTree = "<group>"; };
 		02058AEC22C905DB0061E3D5 /* Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
-		02058AF222C908960061E3D5 /* ShowImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowImage.swift; sourceTree = "<group>"; };
 		02058AF622C9180A0061E3D5 /* EpisodeTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EpisodeTableViewCell.swift; sourceTree = "<group>"; };
 		02058AF822C91BA00061E3D5 /* FavoritesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesTableViewController.swift; sourceTree = "<group>"; };
 		02058AFB22C924CB0061E3D5 /* FavoriteEpisode.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FavoriteEpisode.xcdatamodel; sourceTree = "<group>"; };
 		02058B2322CB711E0061E3D5 /* Episode+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Episode+CoreDataClass.swift"; sourceTree = "<group>"; };
 		02058B2422CB711E0061E3D5 /* Episode+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Episode+CoreDataProperties.swift"; sourceTree = "<group>"; };
+		02058B2722CB8C580061E3D5 /* ShowImage+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShowImage+CoreDataClass.swift"; sourceTree = "<group>"; };
+		02058B2822CB8C580061E3D5 /* ShowImage+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ShowImage+CoreDataProperties.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -114,7 +116,8 @@
 				02058AEC22C905DB0061E3D5 /* Show.swift */,
 				02058B2322CB711E0061E3D5 /* Episode+CoreDataClass.swift */,
 				02058B2422CB711E0061E3D5 /* Episode+CoreDataProperties.swift */,
-				02058AF222C908960061E3D5 /* ShowImage.swift */,
+				02058B2722CB8C580061E3D5 /* ShowImage+CoreDataClass.swift */,
+				02058B2822CB8C580061E3D5 /* ShowImage+CoreDataProperties.swift */,
 				02058A8C22C50CDF0061E3D5 /* Setting.swift */,
 				02058AFA22C924CB0061E3D5 /* FavoriteEpisodeContainer.xcdatamodeld */,
 			);
@@ -220,13 +223,14 @@
 				02058A8522C4D6FB0061E3D5 /* EpisodeDetailViewController.swift in Sources */,
 				02058A7F22C3C6C00061E3D5 /* ShowController.swift in Sources */,
 				02058A8D22C50CDF0061E3D5 /* Setting.swift in Sources */,
+				02058B2922CB8C580061E3D5 /* ShowImage+CoreDataClass.swift in Sources */,
 				02058AF722C9180A0061E3D5 /* EpisodeTableViewCell.swift in Sources */,
 				02058AF922C91BA00061E3D5 /* FavoritesTableViewController.swift in Sources */,
-				02058AF422C908960061E3D5 /* ShowImage.swift in Sources */,
 				02058A7722C3C3D10061E3D5 /* EpisodeTableViewController.swift in Sources */,
 				02058B2522CB711E0061E3D5 /* Episode+CoreDataClass.swift in Sources */,
 				02058AB722C58E5D0061E3D5 /* ThemeController.swift in Sources */,
 				02058AFC22C924CB0061E3D5 /* FavoriteEpisodeContainer.xcdatamodeld in Sources */,
+				02058B2A22CB8C580061E3D5 /* ShowImage+CoreDataProperties.swift in Sources */,
 				02058AF022C905DB0061E3D5 /* Show.swift in Sources */,
 				02058A6322C3BCC20061E3D5 /* AppDelegate.swift in Sources */,
 			);

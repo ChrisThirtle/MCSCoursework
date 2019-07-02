@@ -13,8 +13,6 @@ import CoreData
 @objc(Episode)
 public class Episode: NSManagedObject, Decodable {
   
-  var image: ShowImage?
-  
   enum CodingKeys: String, CodingKey {
     case name
     case episodeNumber = "number"

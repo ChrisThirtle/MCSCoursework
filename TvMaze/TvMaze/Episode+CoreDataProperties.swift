@@ -22,5 +22,5 @@ extension Episode {
     @NSManaged public var season: Int16
     @NSManaged public var episodeNumber: Int16
     @NSManaged public var summary: String?
-
+    @NSManaged public var image: ShowImage?
 }
