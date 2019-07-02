@@ -2,21 +2,18 @@
 //  Episode+CoreDataClass.swift
 //  TvMaze
 //
-//  Created by Consultant on 6/30/19.
+//  Created by Consultant on 7/2/19.
 //  Copyright © 2019 Consultant. All rights reserved.
 //
 //
 
 import Foundation
+import CoreData
 
-class Episode: Decodable {
+@objc(Episode)
+public class Episode: NSManagedObject, Decodable {
   
-  let name: String
-  let season: Int
-  let episodeNumber: Int
-  let airdate: String
-  let summary: String?
-  let image: ShowImage?
+  var image: ShowImage?
   
   enum CodingKeys: String, CodingKey {
     case name
@@ -27,25 +24,21 @@ class Episode: Decodable {
     case image
   }
   
-  required init(from decoder: Decoder) throws {
+  public required convenience init(from decoder: Decoder) throws {
+    guard let entity = NSEntityDescription.entity(forEntityName: "Episode", in: CoreDataManager.shared.context) else {
+      fatalError("Could not decode Episode from Core Data")
+    }
+    self.init(entity: entity, insertInto: nil)
+    
     let container = try decoder.container(keyedBy: CodingKeys.self)
     self.name = try container.decode(String.self, forKey: .name)
-    self.episodeNumber = try container.decode(Int.self, forKey: .episodeNumber)
-    self.season = try container.decode(Int.self, forKey: .season)
+    self.episodeNumber = try container.decode(Int16.self, forKey: .episodeNumber)
+    self.season = try container.decode(Int16.self, forKey: .season)
     self.airdate = try container.decode(String.self, forKey: .airdate)
     self.image = try container.decode(ShowImage?.self, forKey: .image)
     
     let summaryHTML: String? = try container.decode(String?.self, forKey: .summary)
     self.summary = summaryHTML?.replacingOccurrences(of: "<[^>]+>", with: "", options: .regularExpression, range: nil) ?? ""
-  }
-  
-  init(from favorite: FavoriteEpisode) {
-    self.name = favorite.name ?? ""
-    self.episodeNumber = Int(favorite.episodeNumber)
-    self.season = Int(favorite.season)
-    self.airdate = favorite.airdate ?? ""
-    self.summary = favorite.summary
-    self.image = nil
   }
   
   static func ==(lhs: Episode, rhs: Episode) -> Bool {

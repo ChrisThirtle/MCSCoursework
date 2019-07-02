@@ -28,10 +28,10 @@ class CoreDataManager {
     return persistentContainer.viewContext
   }
   
-  func getFavorites() -> [FavoriteEpisode] {
-    let fetchRequest: NSFetchRequest<FavoriteEpisode> = FavoriteEpisode.fetchRequest()
+  func getFavorites() -> [Episode] {
+    let fetchRequest: NSFetchRequest<Episode> = Episode.fetchRequest()
     do {
-      let episodeArray: [FavoriteEpisode] = try context.fetch(fetchRequest)
+      let episodeArray: [Episode] = try context.fetch(fetchRequest)
       return episodeArray
     } catch {
       print(error.localizedDescription)
@@ -39,15 +39,14 @@ class CoreDataManager {
     }
   }
   
-  func addFavorite(episode: Episode) -> FavoriteEpisode? {
-    let favorites = getFavorites().map { Episode(from: $0)}
-    if favorites.contains(where:{ episode == $0 }) {
+  func addFavorite(episode: Episode) -> Episode? {
+    if getFavorites().contains(where:{ episode == $0 }) {
       return nil
     }
-    guard let entity = NSEntityDescription.entity(forEntityName: "FavoriteEpisode", in: context) else {
+    guard let entity = NSEntityDescription.entity(forEntityName: "Episode", in: context) else {
       return nil
     }
-    let favorite = FavoriteEpisode.init(entity: entity, insertInto: context)
+    let favorite = Episode(entity: entity, insertInto: context)
     favorite.name = episode.name
     favorite.season = Int16(episode.season)
     favorite.episodeNumber = Int16(episode.episodeNumber)
@@ -56,7 +55,7 @@ class CoreDataManager {
     return favorite
   }
   
-  func removeFavorite(favorite: FavoriteEpisode) {
+  func removeFavorite(favorite: Episode) {
     context.delete(favorite)
   }
   

@@ -12,7 +12,7 @@ class FavoritesTableViewController: UIViewController {
   
   @IBOutlet weak var tableView: UITableView!
   
-  var favorites = [FavoriteEpisode]()
+  var favorites = [Episode]()
   
   override func viewDidLoad() {
     super.viewDidLoad()
@@ -74,7 +74,7 @@ extension FavoritesTableViewController: UITableViewDelegate {
   
   func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
     guard let episodeDetailView = storyboard?.instantiateViewController(withIdentifier: "EpisodeDetailViewController") as? EpisodeDetailViewController else { return }
-    episodeDetailView.episode = Episode(from: self.favorites[indexPath.row])
+    episodeDetailView.episode = self.favorites[indexPath.row]
     navigationController?.pushViewController(episodeDetailView, animated: true)
   }
 }
