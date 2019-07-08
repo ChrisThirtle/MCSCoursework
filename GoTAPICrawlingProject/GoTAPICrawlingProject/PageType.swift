@@ -16,7 +16,7 @@ enum PageType {
                       completion: @escaping (PageType?) -> Void) {
     switch data {
     case .dictionary(let dictionary):
-      completion(.dictionary(dictionary) )
+      completion(.dictionary(dictionary))
     case .array(let array):
       completion(.array(array))
     case .url(let url):
@@ -62,7 +62,7 @@ enum PageType {
     }
   }
   
-  func getCrawlerData(from index: Int) -> CrawlData? {
+  func getCrawlData(from index: Int) -> CrawlData? {
     if index < 0 || index > self.count { return nil }
     switch self {
     case .dictionary(let dictionary):

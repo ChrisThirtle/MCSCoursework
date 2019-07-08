@@ -8,10 +8,10 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class CrawlerViewController: UIViewController {
   
   @IBOutlet weak var crawlerTableView: UITableView!
-  
+ 
   private let apiUrl = "https://www.anapioficeandfire.com/api/"
   var pageViewModel = PageViewModel()
   
@@ -19,7 +19,8 @@ class ViewController: UIViewController {
     super.viewDidLoad()
     
     pageViewModel.navigationController = navigationController
-    crawlerTableView.dataSource = pageViewModel
+    
+    crawlerTableView.dataSource = self
     crawlerTableView.delegate = pageViewModel
     
     //If there is no current page, i.e. the app has just started, load from the base URL
@@ -30,5 +31,20 @@ class ViewController: UIViewController {
         }
       }
     }
+  }
+}
+
+extension CrawlerViewController: UITableViewDataSource {
+  func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return pageViewModel.getCurrentPageSize()
+  }
+  
+  func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    let cell: UITableViewCell = tableView.dequeueReusableCell(withIdentifier: "cell")
+        ?? UITableViewCell(style: .subtitle, reuseIdentifier: "cell")
+    let (titleString, detailString) = pageViewModel.getTitleAndDetail(for: indexPath.row)
+    cell.textLabel?.text = titleString
+    cell.detailTextLabel?.text = detailString
+    return cell
   }
 }

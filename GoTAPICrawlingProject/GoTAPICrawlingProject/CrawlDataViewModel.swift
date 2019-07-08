@@ -14,7 +14,7 @@ protocol CrawlDataStringifier {
   func titleAndDetailString(for page: PageType, index: Int) -> (String, String)
 }
 
-class CrawlDataManager: CrawlDataStringifier {
+class CrawlDataViewModel: CrawlDataStringifier {
   func titleString(for page: PageType, index: Int) -> String {
     switch page {
     case .array(_):
@@ -49,7 +49,7 @@ class CrawlDataManager: CrawlDataStringifier {
   
   func titleAndDetailString(for page: PageType, index: Int) -> (String, String) {
     let titleString = self.titleString(for: page, index: index)
-    guard let data = page.getCrawlerData(from: index) else { return ("","") }
+    guard let data = page.getCrawlData(from: index) else { return ("","") }
     let detailString: String = self.detailString(for: data)
     return (titleString.capitalized, detailString)
   }

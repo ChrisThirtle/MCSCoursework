@@ -34,7 +34,7 @@ enum CrawlData {
       return .array(object)
     case is String:
       let object = object as? String ?? ""
-      return object.contains("http")
+      return object.starts(with: "http")
         || object.contains("www.")
         || object.contains(".com")
         ? .url(object)
