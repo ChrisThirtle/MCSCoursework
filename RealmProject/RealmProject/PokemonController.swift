@@ -35,22 +35,20 @@ class PokemonController {
     }
   }
   
-  func storePokemon(pokemon: Pokemon, in realm: Realm?) {
-    guard let realm = realm else { return }
-    DispatchQueue.main.async {
-      do {
-        try realm.write {
-          realm.add(pokemon)
-        }
-      }
-      catch {
-        print(error)
-      }
-    }
+  func storePokemonInRealm(pokemon: Pokemon, completion: () -> Void) {
+    RealmController.shared.addToRealm(pokemon)
+    completion()
   }
   
-  func getPokemon(from realm: Realm?) -> [Pokemon] {
-    guard let realm = realm else { return [] }
-    return Array(realm.objects(Pokemon.self))
+  func getRealmPokemon() -> [Pokemon] {
+    return RealmController.shared.getFromRealm(objectType: Pokemon.self)
+      as? [Pokemon] ?? []
+  }
+  
+  func getRealmPokemonUnconfined() -> [Pokemon] {
+    let pokemonArray = RealmController.shared.getFromRealm(objectType: Pokemon.self)
+      as? [Pokemon] ?? []
+    let resultArray = pokemonArray.compactMap { Pokemon(pokemon: $0) }
+    return resultArray
   }
 }

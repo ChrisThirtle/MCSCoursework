@@ -15,6 +15,7 @@
 		02058BE722D589310061E3D5 /* Pokemon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02058BE622D589310061E3D5 /* Pokemon.swift */; };
 		02058BEC22D589670061E3D5 /* NetworkController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02058BEB22D589670061E3D5 /* NetworkController.swift */; };
 		02058BEE22D58AE80061E3D5 /* PokemonController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02058BED22D58AE80061E3D5 /* PokemonController.swift */; };
+		02058BF222D615AC0061E3D5 /* RealmController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 02058BF122D615AC0061E3D5 /* RealmController.swift */; };
 		633981D5BEC68B3D1A56C9CC /* Pods_RealmProject.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7AC5217AAC546BEAFF3E51F4 /* Pods_RealmProject.framework */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,7 @@
 		02058BE622D589310061E3D5 /* Pokemon.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Pokemon.swift; sourceTree = "<group>"; };
 		02058BEB22D589670061E3D5 /* NetworkController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkController.swift; sourceTree = "<group>"; };
 		02058BED22D58AE80061E3D5 /* PokemonController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonController.swift; sourceTree = "<group>"; };
+		02058BF122D615AC0061E3D5 /* RealmController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmController.swift; sourceTree = "<group>"; };
 		7AC5217AAC546BEAFF3E51F4 /* Pods_RealmProject.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_RealmProject.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		ACE053C7C7FC5AB86F3BFABB /* Pods-RealmProject.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealmProject.release.xcconfig"; path = "Target Support Files/Pods-RealmProject/Pods-RealmProject.release.xcconfig"; sourceTree = "<group>"; };
 		BCCA48FE277B20A485D56EB9 /* Pods-RealmProject.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-RealmProject.debug.xcconfig"; path = "Target Support Files/Pods-RealmProject/Pods-RealmProject.debug.xcconfig"; sourceTree = "<group>"; };
@@ -99,6 +101,7 @@
 		02058BEA22D589450061E3D5 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				02058BF122D615AC0061E3D5 /* RealmController.swift */,
 				02058BED22D58AE80061E3D5 /* PokemonController.swift */,
 			);
 			name = Controller;
@@ -239,6 +242,7 @@
 				02058BEC22D589670061E3D5 /* NetworkController.swift in Sources */,
 				02058BD722D57FA40061E3D5 /* ViewController.swift in Sources */,
 				02058BD522D57FA40061E3D5 /* AppDelegate.swift in Sources */,
+				02058BF222D615AC0061E3D5 /* RealmController.swift in Sources */,
 				02058BE722D589310061E3D5 /* Pokemon.swift in Sources */,
 				02058BEE22D58AE80061E3D5 /* PokemonController.swift in Sources */,
 			);

@@ -10,5 +10,16 @@ import Foundation
 import RealmSwift
 
 class Pokemon: Object, Codable {
-  @objc dynamic var name: String
+  @objc dynamic var name: String = ""
+  
+  @objc override class func primaryKey() -> String? { return "name" }
+
+  convenience init?(pokemon: Pokemon) {
+    self.init()
+    self.name = pokemon.name
+  }
+  
+  static func ==(lhs: Pokemon, rhs: Pokemon) -> Bool {
+    return lhs.name == rhs.name
+  }
 }
