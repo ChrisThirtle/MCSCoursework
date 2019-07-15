@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ScratchOff" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="zQo-xm-keu">
+                                <rect key="frame" x="20" y="64" width="374" height="168"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scratch Off To Win" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9TE-Y5-eTq">
+                                        <rect key="frame" x="67.5" y="0.0" width="239.5" height="48"/>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="30"/>
+                                        <color key="textColor" cyan="0.0" magenta="0.09696061643835617" yellow="1" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Scratch off 3 squares for a chance at a prize" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vj-rc-LPu">
+                                        <rect key="frame" x="16" y="56" width="342.5" height="32"/>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="20"/>
+                                        <color key="textColor" cyan="0.0" magenta="0.09696061643835617" yellow="1" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2 Wins: $2" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hd0-6K-k2h">
+                                        <rect key="frame" x="143" y="96" width="88.5" height="32"/>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="20"/>
+                                        <color key="textColor" cyan="0.0" magenta="0.09696061643835617" yellow="1" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="3 Wins: $10" textAlignment="natural" lineBreakMode="wordWrap" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10L-7Z-RIX">
+                                        <rect key="frame" x="140" y="136" width="94.5" height="32"/>
+                                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="20"/>
+                                        <color key="textColor" cyan="0.0" magenta="0.09696061643835617" yellow="1" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="9TE-Y5-eTq" firstAttribute="centerX" secondItem="zQo-xm-keu" secondAttribute="centerX" id="DRZ-cy-mAf"/>
+                                    <constraint firstItem="10L-7Z-RIX" firstAttribute="centerX" secondItem="zQo-xm-keu" secondAttribute="centerX" id="GnZ-h3-8vC"/>
+                                    <constraint firstItem="7vj-rc-LPu" firstAttribute="centerX" secondItem="zQo-xm-keu" secondAttribute="centerX" id="WRf-Na-XeH"/>
+                                    <constraint firstAttribute="width" priority="750" constant="400" id="vNI-Xr-cO6"/>
+                                    <constraint firstItem="hd0-6K-k2h" firstAttribute="centerX" secondItem="zQo-xm-keu" secondAttribute="centerX" id="yIb-H9-z26"/>
+                                </constraints>
+                            </stackView>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="P1r-Y0-wK1">
+                                <rect key="frame" x="0.0" y="241" width="414" height="414"/>
+                                <color key="backgroundColor" cyan="1" magenta="0.0" yellow="1" black="0.61972128380000002" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="P1r-Y0-wK1" secondAttribute="height" multiplier="1:1" id="9kc-qB-X2U"/>
+                                    <constraint firstAttribute="width" priority="750" constant="500" id="nSv-S6-NSr"/>
+                                </constraints>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="ORy-j7-UZL">
+                                    <size key="itemSize" width="91" height="91"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells/>
+                            </collectionView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y4p-8N-LQK">
+                                <rect key="frame" x="20" y="772" width="374" height="60"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="750" constant="400" id="WNh-A3-jz6"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="30"/>
+                                <state key="normal" title="New Card"/>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" cyan="1" magenta="0.0" yellow="1" black="0.61972128380000002" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                        <gestureRecognizers/>
+                        <constraints>
+                            <constraint firstItem="zQo-xm-keu" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="1rL-qW-8sa"/>
+                            <constraint firstItem="Y4p-8N-LQK" firstAttribute="top" relation="greaterThanOrEqual" secondItem="zQo-xm-keu" secondAttribute="bottom" constant="40" id="CNo-LR-q9f"/>
+                            <constraint firstItem="Y4p-8N-LQK" firstAttribute="centerX" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="Exs-Nv-Ucv"/>
+                            <constraint firstItem="Y4p-8N-LQK" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="FnY-Ga-18m"/>
+                            <constraint firstItem="zQo-xm-keu" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="20" id="Khh-ss-Jel"/>
+                            <constraint firstItem="zQo-xm-keu" firstAttribute="centerX" relation="lessThanOrEqual" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="LVQ-Z2-2X6"/>
+                            <constraint firstItem="P1r-Y0-wK1" firstAttribute="height" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="height" id="Ryf-dY-7lm"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Y4p-8N-LQK" secondAttribute="bottom" priority="750" constant="30" id="Sk0-Ae-qU2"/>
+                            <constraint firstItem="P1r-Y0-wK1" firstAttribute="width" relation="lessThanOrEqual" secondItem="6Tk-OE-BBY" secondAttribute="width" id="ezv-z4-Ygl"/>
+                            <constraint firstItem="P1r-Y0-wK1" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="m0j-M1-VWC"/>
+                            <constraint firstItem="Y4p-8N-LQK" firstAttribute="top" relation="greaterThanOrEqual" secondItem="P1r-Y0-wK1" secondAttribute="bottom" priority="250" constant="20" id="nH9-Od-bBI"/>
+                            <constraint firstItem="P1r-Y0-wK1" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="r1J-MM-UQS"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="P1r-Y0-wK1" id="Cqd-nT-SqP"/>
+                        <outlet property="newCardButton" destination="Y4p-8N-LQK" id="hCF-vf-xMH"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="57.971014492753625" y="27.455357142857142"/>
+        </scene>
+    </scenes>
+</document>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="ScratchCollectionViewCell" id="gTV-IL-0wX" customClass="ScratchCollectionViewCell" customModule="ScratchOff" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Ak-id-uoR">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                        <fontDescription key="fontDescription" name="Noteworthy-Light" family="Noteworthy" pointSize="17"/>
+                        <color key="textColor" cyan="0.0" magenta="0.096960616439999994" yellow="1" black="0.0" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="b1h-QW-sRm">
+                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                    </imageView>
+                </subviews>
+            </view>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstItem="b1h-QW-sRm" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="CWo-UY-HIQ"/>
+                <constraint firstAttribute="bottom" secondItem="3Ak-id-uoR" secondAttribute="bottom" id="NWc-hD-O8e"/>
+                <constraint firstAttribute="trailing" secondItem="b1h-QW-sRm" secondAttribute="trailing" id="dzk-b4-Oui"/>
+                <constraint firstAttribute="bottom" secondItem="b1h-QW-sRm" secondAttribute="bottom" id="gIA-vy-tmM"/>
+                <constraint firstItem="3Ak-id-uoR" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="jcj-TZ-kaD"/>
+                <constraint firstAttribute="trailing" secondItem="3Ak-id-uoR" secondAttribute="trailing" id="ljp-tZ-eFZ"/>
+                <constraint firstItem="3Ak-id-uoR" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="mPh-Wd-DAJ"/>
+                <constraint firstItem="b1h-QW-sRm" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="o9c-mm-hdi"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <connections>
+                <outlet property="scratchOverlay" destination="b1h-QW-sRm" id="ymw-Md-oFX"/>
+                <outlet property="textLabel" destination="3Ak-id-uoR" id="Tdb-Jc-V5Y"/>
+            </connections>
+            <point key="canvasLocation" x="137.68115942028987" y="119.86607142857142"/>
+        </collectionViewCell>
+    </objects>
+</document>
