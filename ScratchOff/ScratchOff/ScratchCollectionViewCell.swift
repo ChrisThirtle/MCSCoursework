@@ -14,7 +14,6 @@ class ScratchCollectionViewCell: UICollectionViewCell, NibRegistry {
   @IBOutlet weak var scratchOverlay: UIImageView!
   
   let isWinner: Bool = { Bool.random() }()
-  var imageMask = CIFilter(name: "CIMultiplyCompositing")
   
   override func awakeFromNib() {
     super.awakeFromNib()
@@ -26,22 +25,13 @@ class ScratchCollectionViewCell: UICollectionViewCell, NibRegistry {
 
 extension ScratchCollectionViewCell {
   @objc func handlePanGesture(_ gesture: UIPanGestureRecognizer) {
-    let location = CIVector(cgPoint: gesture.location(in: self))
-    guard let image = scratchOverlay.image?.ciImage else { return }
-    let imageSizedLocation: CIVector = {
+    let location = gesture.location(in: self)
+    guard let image = scratchOverlay?.image else { return }
+    let imageSizedLocation: CGPoint = {
       let x = location.x * (scratchOverlay.image?.size.width ?? 0) / scratchOverlay.frame.size.width
       let y = (scratchOverlay.image?.size.height ?? 0) - location.y * (scratchOverlay.image?.size.height ?? 0) / scratchOverlay.frame.size.height
-      return CIVector(x: x, y: y)
+      return CGPoint(x: x, y: y)
     }()
-    
-    guard let imageMask = self.imageMask,
-      let newFilter = ImageController.shared.scratch(point: imageSizedLocation, radius: 5),
-      let newFilterImage = newFilter.outputImage
-        else { return }
-    imageMask.setValue(image, forKey: "inputImage")
-    imageMask.setValue(newFilterImage, forKey: "inputBackgroundImage")
-    
-    guard let outputImage = imageMask.outputImage else { return }
-    scratchOverlay.image = UIImage(ciImage: outputImage)
+    scratchOverlay.image = ImageController.shared.scratchImage(image: image, point: imageSizedLocation)
   }
 }

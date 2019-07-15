@@ -75,7 +75,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" priority="750" constant="400" id="WNh-A3-jz6"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" name="Noteworthy-Bold" family="Noteworthy" pointSize="30"/>
-                                <state key="normal" title="New Card"/>
+                                <state key="normal" title="New Card ($1)"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" cyan="1" magenta="0.0" yellow="1" black="0.61972128380000002" alpha="1" colorSpace="custom" customColorSpace="genericCMYKColorSpace"/>

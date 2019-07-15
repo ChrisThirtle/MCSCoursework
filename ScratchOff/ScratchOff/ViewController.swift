@@ -37,7 +37,6 @@ class ViewController: UIViewController {
   }
 }
 
-
 extension ViewController: UICollectionViewDataSource {
   func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
     return 16
